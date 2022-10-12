@@ -23,7 +23,6 @@
 
 require('./bot')
 const { default: ZimBotIncConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
-const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
 const pino = require('pino')
 const fs = require('fs')
 const chalk = require('chalk')
@@ -71,6 +70,14 @@ Drips.time('')
 Drips.hr();
 
 async function startZimBotInc() {
+	
+const StringSession = require('./database/StringSession');
+const config = require('./config')
+
+await StringSession(config.SESSION);
+
+	const { state, saveState } = useSingleFileAuthState('./session.json');	
+	
     const ZimBotInc = ZimBotIncConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
