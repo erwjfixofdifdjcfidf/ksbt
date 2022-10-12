@@ -13,6 +13,10 @@
         "description": "Heroku app name, same as above entered",
         "required": true
       },
+      "DIANA_SESSION":{
+        "description": "Enter Queen Diana Session",
+        "required": true
+      },
       "HEROKU_API_KEY": {
         "description": "Heroku account api key, https://dashboard.heroku.com/account",
         "required": true
