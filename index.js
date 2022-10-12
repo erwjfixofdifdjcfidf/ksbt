@@ -76,7 +76,7 @@ const config = require('./config')
 
 await StringSession(config.SESSION);
 
-	const { state, saveState } = useSingleFileAuthState('./session.json');	
+	const { state, saveState } = useSingleFileAuthState('/Drips/Zimbotv4/session.json');	
 	
     const ZimBotInc = ZimBotIncConnect({
         logger: pino({ level: 'silent' }),
